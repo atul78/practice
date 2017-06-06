@@ -27,7 +27,7 @@ public class BinarySearchTree {
         if(node==null) {
             q.enqueue(rootNode);
             bfs(rootNode, q, tree);
-            tree.append(rootNode.getData());
+            tree.append(rootNode.getData()+"\n");
         }
 
         if(node==null)
@@ -101,8 +101,8 @@ public class BinarySearchTree {
     public static void main(String args[]){
         int[] nums = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
         TreeNode tree = createMinimalisticBinaryTree(nums);
-        System.out.println(BinarySearchTree.inorder(tree, ""));
-        System.out.println(bfs(tree));
+        System.out.println("Inorder:"+BinarySearchTree.inorder(tree, ""));
+        System.out.println("BFS:"+bfs(tree));
         System.out.println("Height is "+findMaxHeight(tree)+", "+findMinHeight(tree));
         System.out.println(findCommonAncestor(tree, 17,20));
     }

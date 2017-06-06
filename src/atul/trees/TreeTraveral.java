@@ -1,5 +1,8 @@
 package atul.trees;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * Created by agosain on 5/3/2017.
  */
@@ -24,15 +27,6 @@ public class TreeTraveral {
         }
 
         return rootNode;
-    }
-
-    public void breadthFirst(TreeNode currentNode){
-        if(currentNode!=null) {
-            breadthFirst(currentNode.left);
-            System.out.println(currentNode.getData());
-            breadthFirst(currentNode.right);
-        }else
-            return;
     }
 
     public void removeNode(TreeNode node){

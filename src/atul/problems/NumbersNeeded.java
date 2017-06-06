@@ -33,8 +33,8 @@ public class NumbersNeeded {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String a = "cde";
-        String b = "abc";
+        String a = "tanvi";
+        String b = "aashvi";
         System.out.println("Result is "+numberNeeded(a, b));
     }
 }

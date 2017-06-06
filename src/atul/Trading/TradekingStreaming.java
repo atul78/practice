@@ -2,7 +2,7 @@ package atul.Trading;
 
 /**
  * Created by agosain on 5/23/2017.
- */
+
 import java.io.IOException;
 import org.mortbay.jetty.client.*;
 import org.mortbay.io.Buffer;
@@ -45,3 +45,4 @@ public class TradekingStreaming {
         request.waitForDone();
     }
 }
+*/
