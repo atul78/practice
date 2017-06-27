@@ -1,4 +1,4 @@
-package atul.problems;
+package atul.problems.dp;
 
 import java.util.ArrayList;
 import java.util.HashMap;

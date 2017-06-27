@@ -23,6 +23,7 @@ public class BinarySearchTree {
     public static void bfs(TreeNode rootNode, Queue q, StringBuffer tree){
         if(rootNode==null)
             return;
+        q.enqueue(rootNode);
         TreeNode node = (TreeNode)q.peek();
         if(node==null) {
             q.enqueue(rootNode);

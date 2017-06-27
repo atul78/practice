@@ -75,13 +75,9 @@ class ExprNode<T>{
     }
 
     public void addLeft(ExprNode<T> node, TYPE type){
-        treeNode.left = new TreeNode(node.getData());
-        this.type = type;
         left = new ExprNode<T>(node.getData(), type);
     }
     public void addRight(ExprNode<T> node, TYPE type){
-        treeNode.right = new TreeNode(node.getData());
-        this.type = type;
         right = new ExprNode<T>(node.getData(), type);
     }
     public ExprNode(T data, TYPE type){

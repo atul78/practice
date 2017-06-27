@@ -1,4 +1,4 @@
-package atul.problems;
+package atul.problems.dp;
 
 /**
  * Created by agosain on 5/23/2017.
