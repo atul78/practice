@@ -3,9 +3,9 @@ package atul;
 /**
  * Created by agosain on 4/4/2017.
  */
-public class Queue<T extends Node> {
+public class Queue{
     Node first, last;
-    public void enqueue(T node){
+    public void enqueue(Node node){
         if(first == null) {
             first = node;
             last = node;

@@ -1,10 +1,9 @@
 package atul.trees;
 
-import atul.Node;
-import atul.Queue;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created by agosain on 5/3/2017.
@@ -20,31 +19,18 @@ public class BinarySearchTree {
         return nodes+inorder(rootNode.left, nodes)+rootNode.getData()+inorder(rootNode.right, nodes);
     }
 
-    public static void bfs(TreeNode rootNode, Queue q, StringBuffer tree){
-        if(rootNode==null)
-            return;
-        q.enqueue(rootNode);
-        TreeNode node = (TreeNode)q.peek();
-        if(node==null) {
-            q.enqueue(rootNode);
-            bfs(rootNode, q, tree);
-            tree.append(rootNode.getData()+"\n");
-        }
-
-        if(node==null)
-            return;
-        node = (TreeNode)q.dequeue();
-        tree.append(node.getData());
-        q.enqueue(node.left);
-        bfs(node.left, q, tree);
-        q.enqueue(node.right);
-        bfs(node.right, q, tree);
-    }
-
     public static String bfs(TreeNode rootNode){
-        Queue q = new Queue();
+        if(rootNode==null)
+            return "";
+        Queue<TreeNode> q = new LinkedList<>();
         StringBuffer tree = new StringBuffer();
-        bfs(rootNode, q,tree);
+        q.add(rootNode);
+        while(q.peek()!=null){
+            TreeNode node = q.poll();
+            q.add(node.left);
+            q.add(node.right);
+            tree.append(node.toString()+",");
+        }
         return tree.toString();
     }
 
@@ -53,6 +39,22 @@ public class BinarySearchTree {
             return "";
         return rootNode.getData()+nodes+preorder(rootNode.left, nodes)+preorder(rootNode.right, nodes);
     }
+
+    public static String preStack(TreeNode rootNode){
+        if(rootNode==null)
+            return "";
+        Stack<TreeNode> stack = new Stack();
+        stack.push(rootNode);
+        StringBuffer tree = new StringBuffer();
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            tree.append(node.toString()+",");
+            if(node.right!=null) stack.push(node.right);
+            if(node.left!=null) stack.push(node.left);
+        }
+        return tree.toString();
+    }
+
     public static String postorder(TreeNode rootNode, String nodes){
         if(rootNode==null)
             return "";
@@ -104,6 +106,7 @@ public class BinarySearchTree {
         TreeNode tree = createMinimalisticBinaryTree(nums);
         System.out.println("Inorder:"+BinarySearchTree.inorder(tree, ""));
         System.out.println("BFS:"+bfs(tree));
+        System.out.println("DFS iterative inorder:"+preStack(tree));
         System.out.println("Height is "+findMaxHeight(tree)+", "+findMinHeight(tree));
         System.out.println(findCommonAncestor(tree, 17,20));
     }

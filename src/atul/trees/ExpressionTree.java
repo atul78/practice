@@ -18,6 +18,33 @@ public class ExpressionTree<T> {
         return buffer;
     }
 
+    public int eval(String expression){
+        int result = 0;
+        Stack<Character> stack1 = new Stack();
+        Stack<Character> stack2 = new Stack();
+        char[] chars = expression.toCharArray();
+        for(char c : chars){
+            stack1.push(c);
+        }
+
+        // Pop all the elements and evaluate them
+        while(!stack1.isEmpty()){
+            char c = stack1.pop();
+            switch(c){
+                case '(':
+                    stack2.pop();
+                    break;
+                case ')':
+                    stack2.push(c);
+                    break;
+                //case ''
+            }
+            while(c==')')
+                stack1.pop();
+        }
+        return result;
+    }
+
     public int eval(ExprNode<T> node){
         int result = 0;
         if(node.getType()== ExprNode.TYPE.OPERATOR){
