@@ -52,8 +52,8 @@ public class LongestCommonSubstring {
     }
 
     public static void main(String args[]){
-        String a = "Im a hero  surely";
-        String b = "Im not a hero at all";
-        System.out.println(lcs(a,b));
+        String a = "Im a hero surely";
+        String b = "Im not a hero sat all";
+        System.out.println(lcsd(a,b));
     }
 }

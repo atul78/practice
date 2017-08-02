@@ -4,12 +4,6 @@ package atul.Lists;
  * Created by agosain on 4/24/2017.
  */
 public class DetectLoop {
-     // Definition for singly-linked list.
-      static class ListNode {
-          public int val;
-          public ListNode next;
-          ListNode(int x) { val = x; next = null; }
-      }
 /*
 
       public class Solution {
@@ -72,7 +66,7 @@ public class DetectLoop {
     public static void main(String args[]){
         int[] numbers = new int[]{1,2,3,4,5,6,7,14,13,44,4555,13456};
         int loopStarting = 4;
-        DetectLoop.ListNode rootNode = new DetectLoop().createLoopList(numbers, loopStarting);
+        ListNode rootNode = new DetectLoop().createLoopList(numbers, loopStarting);
 
         // Now that the loop is created. Lets see if im able to find it
         boolean looped = DetectLoop.detectLoop(rootNode);
