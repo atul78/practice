@@ -24,7 +24,7 @@ public class NumbersNeeded {
         }
         for(int i=0;i<chars.length;i++){
             if(chars[i]!=0){
-                count++;
+                count = count+Math.abs(chars[i]);
                 System.out.println("Need to remove "+(char)(i+'a'));
             }
         }
@@ -33,8 +33,8 @@ public class NumbersNeeded {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String a = "tanvi";
-        String b = "aashvi";
+        String a = "fcrxzwscanmligyxyvym";
+        String b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke";
         System.out.println("Result is "+numberNeeded(a, b));
     }
 }
