@@ -3,7 +3,9 @@ package atul.Lists;
 /**
  * Created by agosain on 4/24/2017.
  */
+/*
 public class DetectLoop {
+*/
 /*
 
       public class Solution {
@@ -25,7 +27,8 @@ public class DetectLoop {
             return null;
         }
     }
-*/
+*//*
+
 
     public ListNode createLoopList(int[] numbers, int loopStarting){
         ListNode rootNode = new ListNode(0);
@@ -41,12 +44,14 @@ public class DetectLoop {
         currentNode.next = loopNode;
 
         // Display the list
+*/
 /*
         ListNode node = rootNode;
         while(node != null && (node = node.next)!=null){
             System.out.println(node.val);
         }
-*/
+*//*
+
 
         return rootNode;
     }
@@ -74,3 +79,4 @@ public class DetectLoop {
     }
 
 }
+*/
