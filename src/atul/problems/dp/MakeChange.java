@@ -42,12 +42,25 @@ public class MakeChange {
         return ways;
     }
 
+    // m is size of array
+    // n is total sum to be attained
+    public static int makeChange4(int[] arr, int m, int n){
+        if(n==0)
+            return 1;
+        if(n<0)
+            return 0;
+        if(m<=0 && n>=1)
+            return 0;
+        return makeChange4(arr, m-1, n)+makeChange4(arr, m, n-arr[m-1]);
+    }
+
     public static int makeChange2(int n){
         int[] denoms = {25,10,5,1};
         return makeChange2(n, denoms, 0);
     }
 
     public static void main(String args[]){
-        System.out.println(makeChange2(100));
+        int[] denoms = {25,10,5,1};
+        System.out.println(makeChange4(denoms, denoms.length, 100));
     }
 }

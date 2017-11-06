@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Implement a method to count how many possible ways the child can run up the steps.
  */
 public class CountWays {
+
     public static int numberOfWays(int n) {
         int[] memo = new int[n+1];
         Arrays.fill(memo,-1);
