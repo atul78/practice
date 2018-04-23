@@ -7,27 +7,28 @@ import java.util.Queue;
  * Created by agosain on 5/3/2017.
  */
 public class TreeTraveral<T extends Comparable<T>> {
-    TreeNode rootNode ;
+    public TreeNode rootNode ;
 
-    public void addNode(T value){
-        rootNode = addNode(rootNode, value);
-    }
-
-    public TreeNode addNode(TreeNode<T> rootNode, T value){
-        if(rootNode == null) {
+    public TreeNode addNode(TreeNode<T> node, T value){
+        if(node == null) {
             rootNode = new TreeNode(value);
             return rootNode;
         }
 
-        if(value.compareTo(rootNode.getData())>0) {
-            rootNode.right = addNode(rootNode.right, value);
+        if(value.compareTo(node.getData())>0) {
+            node.right = addNode(node.right, value);
         }
         
-        if(value.compareTo(rootNode.getData())<0) {
-            rootNode.left = addNode(rootNode.left, value);
+        if(value.compareTo(node.getData())<0) {
+            node.left = addNode(node.left, value);
         }
-
-        return rootNode;
+        // Add to the height of the tree
+        node.height = 1+ Math.max(getHeight(node.left), getHeight(node.right));
+      
+        // Determine if its unbalanced by measuring difference in height
+        
+        rootNode = node;
+        return node;
     }
 
     public void removeNode(TreeNode node){
@@ -57,14 +58,24 @@ public class TreeTraveral<T extends Comparable<T>> {
     return preOrder(node.left)+node.getData()+preOrder(node.right);
   }
   
+  public int getHeight(){
+    return getHeight(rootNode);
+  }
+  
+  public int getHeight(TreeNode node){
+    if(node==null)
+      return 0;
+    return 1+Math.max(getHeight(node.left), getHeight(node.right));
+  }
+  
   public static void main(String args[]){
         int[] numbers = new int[]{1,2,3,4,5,6,7,8,9,10};
         TreeTraveral tree = new TreeTraveral();
         TreeNode root = null;
         for(int number: numbers){
-            tree.addNode(number);
+            root = tree.addNode(root, number);
         }
-      
+        
         System.out.println(tree.preOrder());
 
     }
